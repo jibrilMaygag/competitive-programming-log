@@ -1,13 +1,14 @@
-def longestPalindrome(self, s: str) -> str:
-    def checkP(s):
-        j=[]
-        for k in range(len(s)-1,-1,-1):
-            j.append(s[k])
-        return s=="".join(j)
+
+def longestPalindrome(s):
     largest=''
+    
     for i in range(len(s)):
-        for j in range(i,len(s)):
-            if checkP(s[i:j+1]):
-                if len(largest)<j-i+1:
-                    largest=s[i:j+1]
-    return s[0] if len(s)==1 else largest
+        l,r=i,i
+        while l>=0 and r<len(s) and s[l]==s[r]:
+            length=r-l+1
+            if length>len(largest):
+                largest=s[l:r+1]
+            l-=1
+            r+=1
+    return largest
+print(longestPalindrome("abadadads"))
