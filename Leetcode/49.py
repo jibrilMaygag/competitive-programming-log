@@ -14,4 +14,4 @@ def groupAnagrams( strs):
         else:
             res[sorted]=[str]
     return [value for _,value in res.items()]
-        
+
