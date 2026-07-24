@@ -1,0 +1,9 @@
+from collections import Counter
+def findValidPair(s: str) -> str:
+    count=Counter(s)
+    for i in range(len(s)-1):
+        first=s[i]
+        second=s[i+1]
+        if first!=second and count[first]==int(first) and count[second]==int(second):
+            return first + second
+    return ""
