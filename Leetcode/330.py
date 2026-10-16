@@ -3,17 +3,15 @@ def minPatches(nums: list[int], n: int) -> int:
     result=0
     l=0
     while (l<n):
-        if nums[i]>l+1:
-            nums.insert(i,l+1)
+        if i>=len(nums) or nums[i]>l+1:
+            l+=l+1
             result+=1
             continue
-        if nums[i]==1:
-            l=max(l,1)
+        else:
+            l+=nums[i]
             i+=1
-            continue
-        l=max(l,nums[i]+l)
-        i+=1
-
     return result
+
+
 print(minPatches([1,3],6))
 
